@@ -1,0 +1,7 @@
+'/data/aschrc6/wilton/isobe/Project8/ArLac/'                          :main_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts/'                  :bin_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts/house_keeping/'    :house_keeping
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Data/'                     :data_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Exc/'                      :exc_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/HRC_trendings/ArLac/'        :html_dir
+'/data/mta/Script/Python_script2.7/'                                  :mta_dir

@@ -1,0 +1,6 @@
+
+source /proj/sot/ska/bin/ska_envs.csh
+
+cd /data/aschrc6/wilton/isobe/Project8/Vega/Exc/
+
+/data/aschrc6/wilton/isobe/Project8/Vega/Scripts/compute_vega_count.py

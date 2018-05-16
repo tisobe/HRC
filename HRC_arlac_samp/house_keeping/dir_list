@@ -1,0 +1,8 @@
+'/data/aschrc6/wilton/isobe/Project8/ArLac/'                          :main_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/'                  :bin_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/house_keeping/'    :house_keeping
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Data3/'                     :data_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Exc/'                      :exc_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/HRC_trendings/ArLac/'        :web_dir
+'/data/mta/Script/Python_script2.7/'                                 :mta_dir
+'http#//cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/ArLac/'      :html_top

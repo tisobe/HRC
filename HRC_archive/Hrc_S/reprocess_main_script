@@ -1,0 +1,7 @@
+
+cd /data/aschrc6/wilton/isobe/Project9/Exc/
+
+source /proj/sot/ska/bin/ska_envs.csh
+
+/data/aschrc6/wilton/isobe/Project9/Scripts/Hrc_S/re_process_hrc_data.py
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> HRC Energy Trending</title>
+    <style>
+	td{
+		text-align:center;
+	}
+        p{
+            text-align:left;
+            margin-right:10px;
+            padding-left:30px;
+            padding-right:50px;
+        }
+        table{
+            margin-left:auto; 
+            margin-right:auto;
+        }
+    </style>
+
+    <script language="JavaScript">
+    function WindowOpener(imgname) {
+        msgWindow=open("","displayname","toolbar=no,directories=no,menubar=no,location=no,scrollbars=yes,status=no,width=900,height=700,resize=yes");
+        msgWindow.document.close();
+        msgWindow.document.write("<html><head><title>ArLac Trend Plot:"+imgname+"</title></head>");
+        msgWindow.document.write("<body bgcolor='white'>");
+        msgWindow.document.write("<iframe src='http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/ArLac/Plots/" + imgname + "' border=0 width=800 height=600></iframe>");
+        msgWindow.document.write("</body></html>");
+        msgWindow.focus();
+    }
+    </script>
+</head>
+<body style='background-color:#F5F5DC;width:95%;margin-left:10px; margin-right;10px'>
+
+<h2><em>AR Lac Scaled SumAmp and PI Trends</em></h2>
+<a name = 'top'></a>
+<p style="text-align:left;">
+AR Lac is annually observed at the same 21 spots on Y/Z surface of HRC I and HRC S. 
+Ths page presents the trends of Scaled SAMP and PI from year 2000 to the present. 
+</p>
+
+<p style="text-align:left;">
+Since <em>AR Lac</em> is a point source, the center part is defined as a 400 pixel radius area 
+around the source position. The unit is <em>counts/sec</em> (the background counts is also
+that of the 400 pixel radius area and <em>counts/sec/pix</em> unit is used.)
+</p>
+
+<p style="text-align:left;">
+The <em>Scaled Sum Amp</em> is defined by:
+</p>
+
+<p style="text-align:left;">
+<div style='text-align:center;'>
+<em>
+SAMP = (SUMAMP x 2<sup>AMP_SP -1</sup>) / Const
+</em>
+</div>
+<div style='padding-left:80px;'>
+where: <br />
+<em>Cosnt</em> is 148 for <em>HRC-I |</em> and 128 for <em>HRC-S</em>.
+</div>
+</p>
+
+<p style="text-align:left;">
+For the detail discussion about the <em>Scaled Sum Amp</em>, please see: 
+<em>
+<a href='http://hea-www.harvard.edu/~rdurham/Jenny_Hrc/Sumamps_GainMaps/memo.pdf'>
+Sumamps Gain Maps</a> (J. Posson-Brown, V. Kashyap, 2009). 
+</em>
+</p>
+
+<p style="text-align:left;">
+Since there is a discontinuity around year 2012 in Hrc S data, two lines are fitted before and after
+year 2012 for both Hrc I and Hrc S.  In the tables below, the top value is the slope before year 2012, 
+and the bottom one is that of after year 2012.
+</p>
+
+<table border=1 cellpadding=3>
+<tr>
+    <td><a href='#hrci_sky'>Go to HRC I Sky Plot</a></td>
+    <td><a href='#hrci_det'>Go to HRC I Det Plot</a></td>
+    <td><a href='#hrci_off'>Go to HRC I Y/Z Offset Plane</a></td>
+    <td><a href='#hrci_tbl'>Go to HRC I Table</a></td>
+</tr>
+<tr>
+    <td><a href='#hrcs_sky'>Go to HRC S Sky Plot</a></td>
+    <td><a href='#hrcs_det'>Go to HRC S Det Plot</a></td>
+    <td><a href='#hrcs_off'>Go to HRC S Y/Z Offset Plane</a></td>
+    <td><a href='#hrcs_tbl'>Go to HRC S Table</a></td>
+</tr>
+</table>
+
+
+<h3><em>HRC-I </em> </h3>
+#HRCITEXT#
+<p style='text-align:left;'>
+    <a href='#top'>Back to Top</a>
+</p>
+<p style="text-align:left;padding-top:30px;">
+Or click a thumbnail plot in the table below to go to the trend page.
+<a name='hrci_tbl'></a>
+</p>
+
+#TABLE2#
+<p style='text-align:left;'>
+    <a href='#top'>Back to Top</a>
+</p>
+
+<h3><em>HRC-S</em> </h3>
+#HRCSTEXT#
+<p style='text-align:left;'>
+    <a href='#top'>Back to Top</a>
+</p>
+<p style="text-align:left;padding-top:30px;">
+Or click a thumbnail plot in the table below to go to the trend page.
+<a name='hrcs_tbl'></a>
+</p>
+
+#TABLE#
+
+
+<p style='text-align:left;'>
+    <a href='#top'>Back to Top</a>
+</p>
+<div style="padding-bottom:30px">
+</div>
+
+
+
+<hr />
+<p style="text-align:left;">
+    Last modified: #UPDATE#.
+</p>
+<p  style="text-align:left;">
+    If you have any questions, please contact
+    <a href="mailto:tisobe@cfa.harvard.edu">tiosbe@cfa.harvard.edu</a>
+</p>
+</body>
+</html>
+

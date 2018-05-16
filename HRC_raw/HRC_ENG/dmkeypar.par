@@ -1,0 +1,13 @@
+infile,f,a,"/export/data/hrc/CRAB/OBSID11245/hrcf11245_000N001_evt1.fits",,,"Input file name"
+keyword,s,a,"date-obs",,,"Keyword to retrieve"
+echo,b,h,no,,,"Print keyword value to screen?"
+exist,b,l,yes,,,"Keyword existence"
+value,s,l,")sval",,,"Keyword value"
+rval,r,l,0,,,"Keyword value -- real"
+ival,i,l,0,,,"Keyword value -- integer"
+sval,s,l,"2010-11-16T07:03:55",,,"Keyword value -- string"
+bval,b,l,no,,,"Keyword value -- boolean"
+datatype,s,l,"string",string|real|integer|boolean|null,,"Keyword data type"
+unit,s,l,"",,,"Keyword unit"
+comment,s,l,"Observation start date",,,"Keyword comment"
+mode,s,h,"ql",,,

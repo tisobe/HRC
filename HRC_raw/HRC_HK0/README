@@ -1,0 +1,32 @@
+
+############################
+Extracting HRC HK0 Raw Data
+############################
+
+Scripts:
+========
+
+extract_hrc_hk0_wrap_script
+extract_hrc_hk0_main_script
+    -- environment setting script to extract_hrc_hk0_file.py
+
+extract_hrc_hk0_file.py
+    -- find the last processed date and extract data after that date
+       the extracted data are combined at a day unit.
+       Input: none
+       Output:  hrc_hk0_<yyyy><mm><dd>.fits.gz
+                bad_2smtratm.rdb --- lists numbers of bad data encountered for that day
+
+Directory:
+==========
+
+/data/aschrc1/GENHRC/TOOLS/HRC_HK0: this directory saves all scripts. Also run the scripts
+
+/data/aschrc1/GENHRC/RAW/HRC_HK0:   the data directory which saves all data.
+
+
+Cronjob:
+========
+cron job is run by isobe on r2d2-v:
+
+23 3 * * * cd /data/aschrc1/GENHRC/TOOLS/HRC_HK0; /data/aschrc1/GENHRC/TOOLS/HRC_HK0/extract_hrc_hk0_wrap_script

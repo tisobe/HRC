@@ -1,0 +1,47 @@
+
+############################
+Extracting HRC ENG Raw Data
+############################
+
+Scripts:
+========
+
+extract_hrc_eng_wrap_script
+extract_hrc_eng_main_script
+    -- environment setting script to extract_hrc_eng_file.py
+
+extract_hrc_eng_file.py
+    -- find the last processed date and extract data after that date
+       the extracted data are combined at a day unit.
+       Input: col_calc.lis  --- column name list with value modification instructions
+       Output:  hrc_eng4_<yyyy><mm><dd>.fits.gz
+                hrc_eng5_<yyyy><mm><dd>.fits.gz
+                shield_a_stats.rdb: keep stats of shield_a
+                mcptot_a_stats.rdb: keep stats of mcptot_a
+
+save_proccessed_data.py
+    --- move the data into sub-directory such as :
+                /data/aschrc1/GENHRC/RAW/HRC_HK0/2016
+
+Directory:
+==========
+
+/data/aschrc1/GENHRC/TOOLS/HRC_ENG: this directory saves all scripts. Also run the scripts
+
+/data/aschrc1/GENHRC/RAW/HRC_ENG:   the data directory which saves all data.
+
+
+Cronjob:
+========
+cron job is run by isobe on r2d2-v:
+
+19 3 * * * cd /data/aschrc1/GENHRC/TOOLS/HRC_ENG; /data/aschrc1/GENHRC/TOOLS/HRC_ENG/extract_hrc_eng_wrap_script
+
+23 4 6 * * cd /data/aschrc1/GENHRC/TOOLS/HRC_ENG; /data/aschrc1/GENHRC/TOOLS/HRC_ENG/save_proccessed_data.py 
+
+
+
+Note:
+Remove daily fits file from the older sub directory at the turn of year. Probably they are
+not needed beyond current month, but keep for the last few years as a backup.
+

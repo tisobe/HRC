@@ -1,0 +1,150 @@
+
+#########################
+AR Lac PI and Samp Trends
+#########################
+
+This directory contains the scripts to create trend plots of 
+Ar Lac PI and Scaled Sum Amp. 
+
+
++++++++++
+Scripts3
++++++++++
+arlac_wrap_script
+arlac_main_script
+-----------------
+the scripts to set the environment
+
+find_new_arlac_observations.py
+-----------------
+check the database and find unproccessed Ar Lac observations
+
+extract_arlac_stat.py
+--------------------
+extract Ar Lac observation and process the data
+
+create_arlac_trend_plots.py
+---------------------------
+create pi and scaled sum amp trend plots
+
+create_count_rate_plots.py
+--------------------------
+create count rate plots
+
+create_profile_plot.py
+----------------------
+fit gamma profile on the data and create a plot
+the data are either pi or samp data of the given bin of each obsid
+
+fit_gamma_profile.py
+---------------------
+fitting gamma profile on a given data 
+
+create_html_page.py
+-------------------
+create the main html page. this one is usually not used.
+
+filter_evt_file.py
+-------------------
+filter the events with dtf and status  
+this uses: /data/aschrc6/wilton/isobe/Project7/Scripts/house_keeping/dir_list
+
+hrc_common_functions.py
+-----------------------
+hold several functions used by others
+
+create_arlac_center_location_list.py
+------------------------------------
+extract coordinates from manually process data list from /data/hrc/HAT/20170510.arlac_monitor_qe/
+
+++++++++++
+Directory
+++++++++++
+
+'/data/aschrc6/wilton/isobe/Project8/ArLac/'                          :main_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/'                 :bin_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/house_keeping/'   :house_keeping
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Data3/'                    :data_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Exc/'                      :exc_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/HRC_trendings/ArLac/'        :web_dir
+'/data/mta/Script/Python_script2.7/'                                  :mta_dir
+'http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/ArLac/'      :html_top
+
+
+++++++++++++++++++++++++++++++++++
+Some important files/directories
+++++++++++++++++++++++++++++++++++
+
+<house_keeping>/dir_list    --- the list of directory (see above)
+<house_keeping>/hrc_i_list  --- a list of processed hrc i obsid list 
+<house_keeping>/hrc_s_list  --- a list of processed hrc s obsid list 
+
+<data_dir>/<pi/samp>_<s/i>_fitting_results              --- a linear fitting result for the data set
+<data_dir>/<pi/samp>_list_<s/i>                         --- a data for the set
+                                                            time in seconds from 1998.1.1
+                                                            obsid
+                                                            time
+                                                            duration in seconds
+                                                            pi
+                                                            scaled sum amp
+                                                            median
+                                                            count rate (cnt/sec/pix)
+                                                            background count rate (cnt/sec/pix)
+
+<data_dir>/Fitting/<obsid>/<pi/samp>_list                       --- row data
+    #0      starting time
+    #1      obsid
+    #2      date
+    #3      exposure time
+    #4      nom in sky x
+    #5      nom in sky y
+    #6      targ in sky x
+    #7      targ in sky y
+    #8      targ estimated from the data in sky x
+    #9      targ estimated from the data in sky  y
+    #10     y offset
+    #11     z offset
+    #12     average of the pi/samp distribution
+    #13     std of the pi/samp distribution
+    #14     median of the distribtution
+    #15     source count rate per sec (not backgroun corrected)
+    #16     background count rate per sec
+    #17     ra nom
+    #18     dec nom
+    #19     roll nom
+    #20     ra targ
+    #21     dec targ
+    #22     det X of nom
+    #23     det Y of nom
+    #24     det X of targ
+    #25     det Y of targ
+    #25     the size of the target area covered
+    #26     the size of the background area covered
+
+<data_dir>/Fitting/<obsid>/<pi/samp>_listfit_results            --- gamma fitting results 
+
+<web_dir>/Plots3/<pi/samp>_<i/s>_<loc>.html                     --- interactive plot html pages
+<web_dir>/Plots3/Count_rates/<pi/samp>_i/s>_<loc>.png           --- count rate plots
+<web_dir>/Plots3/Indivisual_Plots/<obsid>_<pi/samp>_list_vfits.png
+                                                                ---- gamma profile fitting plot
+<web_dir>/Tumb_plots/<pi/samp>_<i/s>_<loc>_thumb_plots.png
+                                                                ---- thumnail plots of the main trend plots
+
+++++++++++
+Web adress
+++++++++++
+http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/ArLac/arlac.html
+
+
+++++++++++++++++++++
+Environment Setting
+++++++++++++++++++++
+source /proj/sot/ska/bin/ska_envs.csh
+
+
+++++++++
+Cron Job
+++++++++
+on arc as isobe
+23 3 6 * * cd /data/aschrc6/wilton/isobe/Project8/ArLac/Exc; /data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/arlac_wrap_script >  /home/isobe/Logs/arlac_trends_logs.cron 2>&1
+

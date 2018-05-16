@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> HRC Energy Trending</title>
+    <style>
+	td{
+		text-align:center;
+	}
+        p{
+            text-align:left;
+            margin-right:10px;
+            padding-left:30px;
+            padding-right:50px;
+        }
+        table{
+            margin-left:auto; 
+            margin-right:auto;
+        }
+    </style>
+
+    <script language="JavaScript">
+    function WindowOpener(imgname) {
+        msgWindow=open("","displayname","toolbar=no,directories=no,menubar=no,location=no,scrollbars=yes,status=no,width=900,height=700,resize=yes");
+        msgWindow.document.close();
+        msgWindow.document.write("<html><head><title>HZ43 Trend Plot:"+imgname+"</title></head>");
+        msgWindow.document.write("<body bgcolor='white'>");
+        msgWindow.document.write("<iframe src='http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/" + imgname + "' border=0 width=800 height=600></iframe>");
+        msgWindow.document.write("</body></html>");
+        msgWindow.focus();
+    }
+    </script>
+</head>
+<body style='background-color:#F5F5DC;width:95%;margin-left:10px; margin-right;10px'>
+
+<h2><em>HZ 43 Scaled SumAmp and PI Trends</em></h2>
+
+<p>
+Every year, <em>HZ 43</em> is observed with gratings on both <em>HRC-I</em> and <em>HRC-S</em>.
+Recently, due to concern over the rapidly declining gain, the cadence has
+been increased to twice yearly.  <em>HZ 43</em> is usually observed with the gratings 
+in place, so we can monitor how the count rates vary with wavelength.
+</p>
+
+<div style='text-align:center;padding-top:10px;padding-bottom:10px;'>
+<figure>
+<img src='hrc_i_example.png' width=40%>
+<img src='hrc_s_example.png' width=50% style='padding-left:20px'>
+<figcaption>
+<div style='padding-top:20px;padding-left:50px;padding-right:50px;'>
+<em>
+Example LETG observation images of <em>HRC-I </em> (left) and <em>HRC-S</em>(right).
+The dispersion arms run from the bottom left to the center and then to the top right.
+The dispersion runs from 50 to 70 &#8491; for <em>HRC-I</em> and from 50&#8491; to 170&#8491; for
+<em>HRC-S</em>.
+</em>
+</div>
+</figure>
+</div>
+
+
+<p>
+Since <em>HZ 43</em> is a point source, the center part is defined as a 200 pixel radius area 
+around the source position. The unit is <em>counts/sec</em> (the background counts is 
+normalized for per pixel; so the unit is <em>counts/sec/pix</em>.)
+</p>
+
+<p>
+For the dispersion arm parts,  <em>HRC-I</em> has enough data only in the wavelength 70-90&#8491; 
+cell to provide the decent statistics (more than 100 data points). 
+On the other hand, <em>HRC-S</em> has enough data in the  most of 10&#8491; cells  
+from 50&#8491; to 170&#8491;, separately for both <em>+ve</em> and <em>-ve</em> orders.
+</p>
+<p>
+Since polygonal areas are used to estimate the count rates of each wavelength, 
+the unit used on the dispersion arms is <em>counts/sec/pixel</em>.
+</p>
+
+<p>
+The tables blow list the links to the time trend of <em>Scaled Sum Amp</em> and <em>PI</em>, 
+both positive and negative dispersion arms.  The <em>Scaled Sum Amp</em> is defined by:
+</p>
+
+<p>
+<div style='text-align:center;'>
+<em>
+SAMP = (SUMAMP x 2<sup>AMP_SP -1</sup>) / Const
+</em>
+</div>
+<div style='padding-left:80px;'>
+where: <br />
+<em>Cosnt</em> is 148 for <em>HRC-I |</em> and 128 for <em>HRC-S</em>.
+</div>
+</p>
+
+<p>
+For the detail discussion about the <em>Scaled Sum Amp</em>, please see: 
+<em>
+<a href='http://hea-www.harvard.edu/~rdurham/Jenny_Hrc/Sumamps_GainMaps/memo.pdf'>
+Sumamps Gain Maps</a> (J. Posson-Brown, V. Kashyap, 2009). 
+</em>
+</p>
+
+<p>
+Since there is a discontinuity around year 2012, two lines are fitted before and after
+year 2012. If there are not enough data points, only one fitting is applied (the
+second slope is displayed as '0.000'). In the tables below, the top value is the slope 
+before year 2012, and the bottom one is that of after year 2012.
+</p>
+
+
+
+
+
+
+
+
+<h3><em>HRC-I </em> and <em>HRC-S</em> Center Parts</h3>
+<p>
+To see the interactive trend plots, click a thumbnail plot in the table below.
+</p>
+
+<table border=1 cellpadding=2>
+<tr>
+<th>&#160;</th><th colspan=2>Scaled Sum Amp</th><th colspan=2>PI</th>
+</tr>
+<tr>
+<th><em>HRC-I </em> </th>
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/samp_center_list_i.html">
+    <img src="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/Thumb_plots/samp_i_center_thumb_plot.png">
+</a>
+</td>
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/samp_center_list_i.html">
+#HRCISAMP#
+</a>
+</td>
+
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/pi_center_list_i.html">
+    <img src="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/Thumb_plots/pi_i_center_thumb_plot.png">
+</a>
+</td>
+
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/pi_center_list_i.html">
+#HRCIPI#
+</a>
+</td>
+<tr>
+<th><em>HRC-S</em></th>
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/samp_center_list_s.html">
+    <img src="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/Thumb_plots/samp_s_center_thumb_plot.png">
+</a>
+</td>
+
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/samp_center_list_s.html">
+#HRCSSAMP#
+</a>
+</td>
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/pi_center_list_s.html">
+    <img src="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/Thumb_plots/pi_s_center_thumb_plot.png">
+</a>
+</td>
+
+<td>
+<a href="http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/Plots/pi_center_list_s.html">
+#HRCSPI#
+</a>
+</td>
+</tr>
+</table>
+
+
+
+<h3><em>HRC-I </em> Dispersion Arms</h3>
+<p>
+To see the interactive trend plots, click a thumbnail plot in the table below.
+</p>
+
+#TABLE2#
+
+<h3><em>HRC-S</em> Dispersion Arms</h3>
+<p>
+To see the interactive trend plots, click a thumbnail plot in the table below.
+</p>
+
+#TABLE#
+
+
+<div style="padding-bottom:30px">
+</div>
+
+
+<p>
+<b>Note:</b> the following values are used to estimate the dispersion positions in the arms.
+</p>
+<ul>
+<li> 1 pixel = 4.265e-5 degrees (tg_d in degree).</li>
+<li> 1 tap   = 256 pixels = 1.88893&#8491;</li>
+</ul>
+
+
+
+
+<hr />
+<p style="text-align:left;">
+    Last modified: #UPDATE#.
+</p>
+<p  style="text-align:left;">
+    If you have any questions, please contact
+    <a href="mailto:tisobe@cfa.harvard.edu">tiosbe@cfa.harvard.edu</a>
+</p>
+</body>
+</html>
+

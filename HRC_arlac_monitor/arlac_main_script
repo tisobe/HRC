@@ -1,0 +1,6 @@
+
+source /proj/sot/ska/bin/ska_envs.csh
+
+cd /data/aschrc6/wilton/isobe/Project8/ArLac/Exc/
+
+/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts/compute_arlac_count.py

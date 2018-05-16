@@ -1,0 +1,75 @@
+
+####################################
+Monitoring the UV/Ion Shield Health
+####################################
+
+This task is similar to that of Vega originally done by M. Juda and his results up to the end of 2016 are in:
+    http://cxc.harvard.edu/contrib/juda/memos/uvis_monitor/index.html
+
+========
+Scripts:
+========
+
+arlac_wrap_script
+arlac_main_script
+----------------
+environment setting script which run compute_evga_counts.py
+
+compute_arlac_count.py
+----------------------
+extract data from the database, compute statistics, and update ArLac Monitoring 
+the UV/Ion Shield Health page
+
+    input:      none, but read from /data/mta4/obs_ss/sot_ocat.out
+    output:     <html_dir>/arlac_vis_montior.html
+                <html_dir>/Plots/*.png
+                <data_dir>/hrc_i_results etc
+
+extract_arlac_data.py
+--------------------
+extract arlac calibration data and create a list of them
+
+    input:      none but read from /data/mta4/obs_ss/sot_ocat.out
+    output:     <house_keeping>/hrc_i_list
+                <house_keeping>/hrc_s_list
+                chk 0 or 1. if 1, it found new data. otherwise it returns 0
+
+find_coordinate.py
+------------------
+find coordinates of a given object using simbad database
+
+    input:      target  --- target name
+                year    --- year of the observation. a fractional year can be used. default: ''
+
+    output:     [ra, dec]
+
+create_html_page.py
+-------------------
+update arlac_vis_montior.html page
+
+    input: none, but read from <data_dir>/hrc_*_results
+    output: <html_dir>/arlac_vis_montior.html
+            <html_dir>/Plots/*.png
+
+===========
+Directories:
+===========
+'/data/aschrc6/wilton/isobe/Project8/ArLac/'                          :main_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts/'                  :bin_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts/house_keeping/'    :house_keeping
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Data/'                     :data_dir
+'/data/aschrc6/wilton/isobe/Project8/ArLac/Exc/'                      :exc_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/HRC_trendings/ArLac/'        :html_dir
+'/data/mta/Script/Python_script2.7/'                                 :mta_dir
+
+=====
+html:
+=====
+http://cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/ArLac/arlac_vis_montior.html
+
+=========
+Cron Job:
+=========
+on ars as isobe:
+14 2 2 * * cd //data/aschrc6/wilton/isobe/Project8/ArLac/Exc/; /data/aschrc6/wilton/isobe/Project8/ArLac/Scripts/arlac_wrap_script > /home/isobe/Logs/arlac_logs.cron
+

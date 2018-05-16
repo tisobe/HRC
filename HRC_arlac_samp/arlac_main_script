@@ -1,0 +1,13 @@
+cd /data/aschrc6/wilton/isobe/Project8/ArLac/Exc
+
+source /proj/sot/ska/bin/ska_envs.csh
+
+/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/find_new_arlac_observations.py
+/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/extract_arlac_stat.py
+/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/create_arlac_trend_plots.py
+/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/create_count_rate_plots.py
+/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/create_profile_plot.py
+/data/aschrc6/wilton/isobe/Project8/ArLac/Scripts3/create_html_page.py
+
+chgrp -R mtagroup /proj/web-cxc-dmz/htdocs/contrib/cxchrc/HRC_trendings/ArLac/*
+chgrp -R mtagroup /data/aschrc6/wilton/isobe/Project8/ArLac/Data3/*

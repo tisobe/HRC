@@ -1,0 +1,502 @@
+<html>
+<head>
+<title>data selection</title>
+<style type="text/css">
+body{
+        background-color:#F5F5DC;
+        color:           #000000;
+        font-family:     serif, Verdana, Helvetica, Arial, sans-serif;
+        font-size:       10pt;
+        text-align:      justify;
+        margin:          20px;
+        padding:         20px;
+
+}
+
+p{
+        margin-left:    10px;
+}
+
+p.center{
+        margin-left:    10px;
+        padding:        15px;
+        font-size:      110%;
+        font-weight:    bolder;
+        text-align:     center;
+}
+
+h1,h2,h3,h4 {text-align: left}
+
+a:link    {color:       #FF0000}  /* unvisited link */
+a:visited {color:       #4B0082}  /* visited link */
+a:hover   {color:       #FF00FF}  /* mouse over link */
+a:active  {color:       #0000FF}  /* selected link */
+
+h1{
+        text-align:     center;
+}
+
+h2{
+        color:          #F5F5DC;
+        font-style:     oblique;
+        background-color: blue;
+}
+
+h2.center{
+        text-align:     center;
+}
+
+table{
+    margin-left:        10px;
+    padding:            15px;
+}
+
+ul{
+    margin-left:        10px;
+    padding-right:      10px;    
+}
+
+em.white{
+        font-style:     normal;
+        color:          #F5F5DC;
+}
+
+em.yellow{
+        font-style:     normal;
+        color:          #fff000;
+}
+
+em.red{
+        font-style:     normal;
+        color:          #ff0000;
+}
+
+.uline{
+        text-decoration:underline;      /* under line class */
+        text-align:     center;
+}
+
+.emshift{                               /* use for no border table to the entry to stand out */
+        border:         0;
+        border-collapse:separate;
+        border-spacing: 8px;
+        margin-left:    80px;
+        font-size:      105%;
+        color:          #000000;
+}
+
+
+#navigation{
+        position:       absolute;
+        top:            15em;
+        left:           10px;
+        width:          154px;
+        font-size:      85%;
+        font-weight:    bold;
+        text-align:     left;
+        color:          blue;
+        background-color: #B0E0E6;
+        border-width:   10px;
+        border-color:   white;
+        padding:        3px;
+}
+
+#main_area{
+        position:       relative;
+        top:            37em;
+        left:           5px;
+        padding-left:   10px;
+        padding-right:  20px;
+}
+
+ul.short{
+        margin-left:    20px;
+        padding-left:   20px;
+        width:          90%;
+        padding-right:  5em;
+}
+
+li{padding-bottom: 8px}
+
+ul.medium{
+        margin-left:    0;
+        width:          95%;
+        padding-left:   36px;
+        padding-right:  36px;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Detail Descriptions of Data Selections and Reductions</h2>
+
+<p>
+The Goal is to extract information on the HRC background when the
+detector is in the "stowed" position.
+</p>
+
+<p>
+For our purposes the stowed position will be anytime that the SIM
+translation motor step position is greater than zero (TSCPOS > 0).
+</p>
+
+<p>
+The detector MCP HV must be on and at the operational level
+</p>
+
+<p>
+For the HRC-I, this means:
+</p>
+<ul style='background-color:#F5DEB3'>
+        <li>MSID 2IMONST  is ON (or 1)</li>
+        <li>MSID 2IMTPAST is 77</li>
+        <li>MSID 2IMBPAST is 89</li>
+        <li>MSID 2IMHVLV  is in the range 78-82</li>
+        <li>MSID 2IMHBLV  is in the range 85-88</li>
+</ul>
+
+<p>
+Some values of Hrc S parameters changed in April 2012.
+</p>
+<ul style='background-color:#F5DEB3'>
+        <li>MSID 2SPONST  is ON (or 1)</li>
+        <li>MSID 2SPTPAST is 90 before 2012 / 93 after 2012</li>
+        <li>MSID 2SPBPAST is 102 before 2012 / 105 after 2012</li>
+        <li>MSID 2SPHVLV  is in the range 71-75 before 2012 / 71-73 after 2012</li>
+        <li>MSID 2SPHBLV  is in the range 78-82 before 2012 / 78-80 after 2012</li>
+</ul>
+
+<p>
+The configuration of the HRC-I (or HRC-S) matters. Data from the
+SI_MODE = DEFAULT configuration are the data of interest. For more
+information on the HRC SI_MODEs (HRCMODE) see:
+<br /><br />
+       <a href='http://cxc.harvard.edu/contrib/juda/hrc_flight/macros/hrcmode.html'>http://cxc.harvard.edu/contrib/juda/hrc_flight/macros/hrcmode.html</a>
+</p>
+
+<p>
+The DEFAULT configuration for each instrument has changed over time.
+Some of these changes are not expected to have an impact on the
+background (the WIDTH_THRESHOLD and RANGE_SWITCH_LEVEL parameters)
+but do have an impact on how the event data are processed.
+</p>
+
+<p>
+The HRC-I has been operated in a non-DEFAULT configuration a few
+times, most notably when we are performing the ACIS undercover
+background. There can be times after these observations when the
+stowed background data would be collected in this configuration. these
+time intervals should not be included.
+</p>
+
+<p>
+For the HRC-I the important configuration settings to satisfy are:
+</p>
+
+<ul style='font-size:90%; background-color:#F5DEB3'>
+ <li>TRIGGER_LEVEL        8 (has been set to other values)
+   <ul><li type=circle>Check via MSID 2LLDIALV in the range 130-132</li></ul></li>
+ <li>RANGE_SWITCH_LEVEL   90 or 115
+   <ul><li type=circle>Check via MSID 2RSRFALV in the range 171-173 (for 90) or 184-186 (for 115)</li></ul></li>
+ <li>ANTICO_ENABLE        YES
+   <ul><li type=circle>Check via MSID 2SHLDAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 1</li></ul></li>
+ <li>WIDTH_ENABLE         NO
+   <ul><li type=circle>Check via MSID 2WDTHAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>WIDTH_THRESHOLD       2 or 3
+   <ul><li type=circle>Check via MSID 2WDTHAST value of 2 or 3</li></ul></li>
+ <li>ULD_ENABLE           NO
+   <ul><li type=circle>Check via MSID 2ULDIAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>UPPER_LEVEL_DISC     255
+   <ul><li type=circle>Check via MSID 2ULDIALV in the range 254-255</li></ul></li>
+ <li>BLANK_ENABLE         NONE
+   <ul><li type=circle>Check via MSID 2EBLKAVR and 2CBLKAVR (part of SCIDPREN in
+   hrcf*_hk0.fits) should both be 0</li></ul></li>
+ <li>U_BLANK_HI           255
+   <ul><li type=circle>Check via MSID 2CBHUAST value of 255</li></ul></li>
+ <li>V_BLANK_HI           255
+   <ul><li type=circle>Check via MSID 2CBHVAST value of 255</li></ul></li>
+ <li>U_BLANK_LOW          0
+   <ul><li type=circle>Check via MSID 2CBLUAST value of 0</li></ul></li>
+ <li>V_BLANK_LOW          0
+   <ul><li type=circle>Check via MSID 2CBLVAST value of 0</li></ul></li>
+</ul>
+
+<p>
+For the HRC-S the important configuration settings to satisfy are:
+</p>
+
+<ul style='font-size:90%; background-color:#F5DEB3'>
+ <li>TRIGGER_LEVEL        8 (has been set to other values)
+   <ul><li type=circle>Check via MSID 2LLDIALV in the range 130-132</li></ul></li>
+ <li>RANGE_SWITCH_LEVEL   90 or 125
+   <ul><li type=circle>Check via MSID 2RSRFALV in the range 171-173 (for 90) or 189-191 (for 125)</li></ul></li>
+ <li>ANTICO_ENABLE        NO
+   <ul><li type=circle>Check via MSID 2SHLDAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>WIDTH_ENABLE         NO
+   <ul><li type=circle>Check via MSID 2WDTHAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>WIDTH_THRESHOLD       2 or 3
+   <ul><li type=circle>Check via MSID 2WDTHAST value of 2 or 3</li></ul></li>
+ <li>ULD_ENABLE           NO
+   <ul><li type=circle>Check via MSID 2ULDIAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>UPPER_LEVEL_DISC     255
+   <ul><li type=circle>Check via MSID 2ULDIALV in the range 254-255</li></ul></li>
+ <li>BLANK_ENABLE         EDGE
+   <ul><li type=circle>Check via MSID 2EBLKAVR and 2CBLKAVR (part of SCIDPREN in
+   hrcf*_hk0.fits) should be 1 and 0, respectively</li></ul></li>
+ <li>U_BLANK_HI           74
+   <ul><li type=circle>Check via MSID 2CBHUAST value of 74</li></ul></li>
+ <li>V_BLANK_HI           255
+   <ul><li type=circle>Check via MSID 2CBHVAST value of 255</li></ul></li>
+ <li>U_BLANK_LOW          69
+   <ul><li type=circle>Check via MSID 2CBLUAST value of 69</li></ul></li>
+ <li>V_BLANK_LOW          0
+   <ul><li type=circle>Check via MSID 2CBLVAST value of 0</li></ul></li>
+</ul>
+
+<p>
+The third HRC "stowed" background to do is for the HRC-S high-precision timing configuration:
+For the HRC-S in the high-precision timing mode (HRCMODE S_TIMING) the
+important configuration settings to satisfy are:
+</p>
+
+<ul style='font-size:90%; background-color:#F5DEB3'>
+ <li>TRIGGER_LEVEL       21 (has been set to other values)
+   <ul><li type=circle>Check via MSID 2LLDIALV in the range 137-139</li></ul></li>
+ <li>RANGE_SWITCH_LEVEL   90 or 125
+   <ul><li type=circle>Check via MSID 2RSRFALV in the range 171-173 (for 90) or 189-191 (for 125)</li></ul></li>
+ <li>ANTICO_ENABLE        NO
+   <ul><li type=circle>Check via MSID 2SHLDAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>WIDTH_ENABLE         NO
+   <ul><li type=circle>Check via MSID 2WDTHAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>WIDTH_THRESHOLD       2 or 3
+   <ul><li type=circle>Check via MSID 2WDTHAST value of 2 or 3</li></ul></li>
+ <li>ULD_ENABLE           NO
+   <ul><li type=circle>Check via MSID 2ULDIAVR (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+ <li>UPPER_LEVEL_DISC     255
+   <ul><li type=circle>Check via MSID 2ULDIALV in the range 254-255</li></ul></li>
+ <li>BLANK_ENABLE         NONE
+   <ul><li type=circle>Check via MSID 2EBLKAVR and 2CBLKAVR (part of SCIDPREN in
+   hrcf*_hk0.fits) should both be 0</li></ul></li>
+ <li>U_BLANK_HI           255
+   <ul><li type=circle>Check via MSID 2CBHUAST value of 255</li></ul></li>
+ <li>V_BLANK_HI           255
+   <ul><li type=circle>Check via MSID 2CBHVAST value of 255</li></ul></li>
+ <li>U_BLANK_LOW          0
+   <ul><li type=circle>Check via MSID 2CBLUAST value of 0</li></ul></li>
+ <li>V_BLANK_LOW          0
+   <ul><li type=circle>Check via MSID 2CBLVAST value of 0</li></ul></li>
+ <li>SPECT_MODE           IMAGING
+   <ul><li type=circle>Check via MSID 2SPMDASL (part of SCIDPREN in hrcf*_hk0.fits) should be 0</li></ul></li>
+</ul>
+
+<p>
+SCIDPREN has a C-style bit numbering:
+</p>
+
+<table border=1 cellspacing=2>
+<tr><th>Bit</th><th>MSID</th><th>Description</th><tr>
+<th>12-15</th><td>   SPARE </td><td>&#160</td><tr>
+<th>  11 </th><td>   2CLMDAST</td><td>  CALIBRATION MODE ENABLE</td></tr>
+<th>  10 </th><td>   2FIFOAVR</td><td>  DATA FIFO ENABLE</td></tr>
+<th>   9 </th><td>   2OBNLASL</td><td>  OBSERVING/NEXT-IN-LINE MODE SELECT</td></tr>
+<th>   8 </th><td>   2SPMDASL</td><td>  SPECT DETECTOR SPECT/IMG MODE SELECT</td></tr>
+<th> 5-7 </th><td>   SPARE   </td><td>&#160</td><tr></td></tr>
+<th>   4 </th><td>   2EBLKAVR</td><td>  EBLK VALIDITY ENABLE</td></tr>
+<th>   3 </th><td>   2CBLKAVR</td><td>  CBLK VALIDITY ENABLE</td></tr>
+<th>   2 </th><td>   2ULDIAVR</td><td>  ULD VALIDITY ENABLE</td></tr>
+<th>   1 </th><td>   2WDTHAVR</td><td>  WIDTH VALIDITY ENABLE</td></tr>
+<th>   0  </th><td>  2SHLDAVR</td><td>  SHIELD VALIDITY ENABLE</td></tr>
+</table>
+
+<p>
+The bit-mask filter SCIDPREN=0000xxxx000xxxxx requires the spare bits to be 0.
+</p>
+
+<p>
+Given the time intervals when the SIM translation table has the HRC in
+the "stowed" position, the subset of times for which the HRC-I has the
+HV on and at the operational level and which satisfies the
+configuration settings can be found. Similar time intervals can be
+found for the HRC-S.
+</p>
+
+<p>
+A complication in dealing with the HRC serial-digital housekeeping
+telemetry (the hrcf*_hk0.fits files) comes from "glitches". These can
+mark nominally good times as bad. There are three types of glitches:
+</p>
+
+<ul style='background-color:#F5DEB3'>
+<li> missing telemetry data
+<li> HRC secondary-science FIFO resets that accompany all telemetry
+  changes and detector configuration changes
+<li> HRC secondary-science data corruption due to elevated temperature
+</ul>
+
+<p>
+In principle, the QUALITY bit-array flags the first type of glitch.
+The second can be at least partially identified by non-zero values to
+the spare bits in SCIDPREN. A bit-mask check of
+</p>
+
+<p>
+  SCIDPREN=0000xxxx000xxxxx
+</p>
+
+<p>
+should remove some of these second type of glitch. The third type are
+harder to spot but I have had some success with using MSID 2SMTRATM
+(the selected motor temperature). Normally, there is no motor selected
+and the value floats to some arbitrary value. The corruption of the
+data stems from bytes in the secondary science FIFO getting duplicated
+and the two bytes preceding 2SMTRATM are spares that stay at a "high"
+value. A reading of 55-56 for 2SMTRATM indicates corrupted data. For
+more information on this data corruption see:
+</p>
+<p>
+     <a href='http://cxc.harvard.edu/contrib/juda/memos/anomaly/sec_sci/index.html'>
+     http://cxc.harvard.edu/contrib/juda/memos/anomaly/sec_sci/index.html
+     </a>
+</p>
+<p>
+and
+</p>
+<p>
+     <a href='http://cxc.harvard.edu/contrib/juda/memos/anomaly/sec_sci/byte_shift.html'>
+     http://cxc.harvard.edu/contrib/juda/memos/anomaly/sec_sci/byte_shift.html
+     </a>
+</p>
+
+<p>
+For each interval the secondary science rate data should be extracted
+and merged into a single file for the interval. From each of these
+interval files the mean, sigma, min, and max of the total (TLEVART)
+and valid (VLEVART) MCP rates should be determined and incorporated
+into a table. This will permit investigation of the time history of
+the background and any potential changes in the valid/total ratio.
+It will probably be necessary to iteratively clip the rates when
+calculating the statistics to avoid outliers.
+</p>
+
+<p>
+Processing the event data from each interval will require specifying
+the values for the keyword RANGELEV to do the AMP_SF correction. While
+earlier I described using time to divide between when it is
+appropriate to use 90 or 115 the automatic way to do it is to set the
+value based on MSID 2RSRFALV, which should be essentially constant
+over the interval. The prescription for the value of RANGELEV is:
+</p>
+<p>
+      RANGELEV = (int)((mean(2RSRFALV) - 127) * 2 + 0.5)
+</p>
+<p>
+It is also necessary to specify the value of the keyword WIDTHRES to
+obtain the best tap-ringing correction. Its value is determined by the
+value of MSID 2WDTHAST, which should be constant during the interval.
+Its prescription is:
+</p>
+<p>
+      WIDTHRES = (int)(mean(2WDTHAST) + 0.5)
+</p>
+
+<p>
+To run <a href='http://cxc.harvard.edu/ciao/ahelp/hrc_process_events.html'>hrc_process_events</a>, we also set following parameters. 
+</p>
+
+
+
+<div style='background-color:#F5DEB3'>
+<table border=0 cellpadding=2 cellspacing=2 style='font-size:90%'>
+<tr>
+<th>Parameters</th><th>HRC I</th><th>HRC S</th>
+</tr>
+
+<tr>
+    <th>ampsatfile</th>   
+    <td><a href='./Data_save/Calib_dir/sattest/hrciD1999-07-22sattestN0002.fits'>hrciD1999-07-22sattestN0002.fits</a></td>
+    <td><a href='./Data_save/Calib_dir/sattest/hrcsD1999-07-22sattestN0002.fits'>hrcsD1999-07-22sattestN0002.fits</a></td>
+</tr>
+
+<tr>
+    <th>ampsfcorfile</th> 
+    <td><a href='./Data_save/Calib_dir/amp_sf_cor/hrcsD1999-07-22amp_sf_corN0001.fits'>hrcsD1999-07-22amp_sf_corN0001.fits</a></td>
+    <td><a href='./Data_save/Calib_dir/amp_sf_cor/hrcsD1999-07-22amp_sf_corN0001.fits'>hrcsD1999-07-22amp_sf_corN0001.fits</a></td>
+</tr>
+
+<tr>
+    <th>badpixfile</th>   
+    <td><a href='./Data_save/hrcf10702_000N001_bpix1.fits'>hrcf10702_000N001_bpix1.fits</a></td>
+    <td><a href='./Data_save/hrcf10600_000N001_bpix1.fits'>hrcf10600_000N001_bpix1.fits</a></td>
+</tr>
+
+<tr>
+    <th>degapfile</th>    
+    <td><a href='./Data_save/Calib_dir/gaplookup/hrciD1999-07-22gaplookupN0004.fits'>hrciD1999-07-22gaplookupN0004.fits</a></td>
+    <td><a href='./Data_save/Calib_dir/gaplookup/hrcsD1999-07-22gaplookupN0003.fits'>hrcsD1999-07-22gaplookupN0003.fits</a></td>
+</tr>
+
+<tr>
+    <th>evtflatfile</th>  
+    <td><a href='./Data_save/Calib_dir/eftest/hrciD1999-07-22eftestN0001.fits'>hrciD1999-07-22eftestN0001.fits</a></td>
+    <td><a href='./Data_save/Calib_dir/eftest/hrcsD1999-07-22eftestN0001.fits'>hrcsD1999-07-22eftestN0001.fits</a></td>
+</tr>
+
+<tr>
+    <th>hypfile</th>      
+    <td><a href='./Data_save/Calib_dir/fptest/hrciD1999-07-22fptestN0003.fits'>hrciD1999-07-22fptestN0003.fits</a></td>
+    <td><a href='./Data_save/Calib_dir/fptest/hrcsD1999-07-22fptestN0004.fits'>hrcsD1999-07-22fptestN0004.fits</a></td>
+</tr>
+
+<tr>
+    <th>obsfile</th>      
+    <td><a href='./Data_save/obs.par'>obs.par</a></td>
+    <td><a href='./Data_save/obs_hrc_s.par'>obs_hrc_s.par</a></td>
+</tr>
+
+<tr>
+    <th>tapfile</th>      
+    <td><a href='./Data_save/Calib_dir/tapringtest/hrciD1999-07-22tapringN0002.fits'>hrciD1999-07-22tapringN0002.fits</a></td>
+    <td><a href='./Data_save/Calib_dir/tapringtest/hrcsD1999-07-22tapringN0002.fits'>hrcsD1999-07-22tapringN0002.fits</a></td>
+</tr>
+
+</table>
+</div>
+
+
+<p>
+Hrc I uses a different gain file each year starting September of the year.
+</p>
+
+<div style='background-color:#F5DEB3'>
+<table border=0 cellpadding=2 cellspacing=2  style='font-size:90%'>
+
+#TABLE#
+
+</table>
+</div>
+
+<p>
+For HRC S, there is only one gain file.
+</p>
+<div style='background-color:#F5DEB3'>
+<table border=0 cellpadding=2 cellspacing=2  style='font-size:90%'>
+<tr>
+<th>&#160</th>     <td><a href='./Data_save/Gain_files/hrcsD1999-07-22gainN0001.fits'>hrcsD1999-07-22gainN0001.fits</a></td>
+</table>
+</div>
+
+
+<p>
+A separate level 1 type event file should be made for each of the
+stowed-background intervals. These can later be merged into larger
+data sets based on time or other discriminators.
+</p>
+
+<hr />
+<p>
+Last modified: #UPDATE#
+</p>
+
+</body>
+</html>

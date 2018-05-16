@@ -1,0 +1,122 @@
+
+################
+HRC Data Archive
+################
+
+There is currently an archive of all HRC data in /data/hrc/s/ and /data/hrc/i/. It
+contains data processed the best way we know how (applying all known Cal
+corrections, keeping all information intact). This way, everything we need is
+pre-calculated and waiting for any kind of analysis we might need to run.
+
+++++++++
+Scripts
+++++++++
+
+reprocess_warp_script
+reprocess_main_script
+---------------------
+The environment setting scripts 
+
+re_process_hrc_data.py
+----------------------
+The script to control all other scripts.
+It finds unproccessed archived hrc observations and process them.
+
+input:  None but need an access to /data/mta4/obs_ss/sot_ocat.out
+
+output: analyzed results in <data_dir>/<obsid>/
+
+DBI.py
+-------
+Ska.DBI to provide simple methods for database access and data insertion
+
+OcatSQL.py
+----------
+read data from sql database to fill all Ocat Data Page pamater values 
+
+repro_all.csh
+-------------
+The main script for each hrc-i obsid, downloads the relevant data files 
+from the Chandra archive and runs processing algorithms and puts 
+everything under <data_dir>/.
+
+    Usage: csh -f repro_all.csh hrc_i_list
+    where hrc_i_list contains hrc i obsids
+
+Following perl scripts are run though repro_all.csh (need ciao environment)
+
+fix_rangelev+widthres.pl
+------------------------
+Checks HRC EVT Header for RANGELEV and WIDTHRES keywords,
+and sets them to the proper values if the don't exist
+
+input: <data_dir>/<obsid>/analysis/obsid.lst
+
+mk_new_badpix.pl
+----------------
+Make a new observation-specific bad pixel file to using the latest CALDB degap.
+
+input: <data_dir>/<obsid>/analysis/obsid.lst
+
+run_hpe.pl
+----------
+Run hrc_process_events to creat a new level=1 event list with
+latest CALDB products, software updates, new bad pix file, etc
+
+input: <data_dir>/<obsid>/analysis/obsid.lst
+
+stat+gti_filter.pl
+------------------
+Filter new evt1 on new GTI
+
+input: <data_dir>/<obsid>/analysis/obsid.lst
+
+fix_dtcor.pl
+------------
+Uses hrc_dtfstats to recompute deadtime statistics, 
+updates relevant keywords in evt1 header
+
+input: <data_dir>/<obsid>/analysis/obsid.lst
+
+
+++++++++++++
+Directories
+++++++++++++
+
+/data/aschrc6/wilton/isobe/Project9/Scripts/Hrc_I/
+    --- this directory. keep all related scripts
+
+/data/aschrc6/wilton/isobe/Project9/Scripts/Hrc_I/house_keeping
+    --- dir_list:       a directory list
+        cancelled_list: a list of obsids which were cancelled etc
+        
+/data/hrc/i/
+    --- data directory; keep HRC_I and HRC_S
+        each hold sub directories <obsid> for each observation.
+        each <obsid> also holds three subdirectories:
+        analysis, primay, and secondary
+
+/data/aschrc6/wilton/isobe/Project9/Exc
+    ---- the scripts are run in this directory
+
+
++++++++++++++
+Environments
++++++++++++++
+
+The python scripts need the ska environment:
+    source /proj/sot/ska/bin/ska_envs.csh
+
+The perl scripts needs ciao environment:
+    source /soft/ciao/bin/ciao.sh
+
+The latter is set in re_process_hrc_data.py when the scripts
+are run and do not need to set explicitly (and should not set
+it with ska).
+
+
++++++++++
+cron job
++++++++++
+on r2d2-v as isobe:
+15 9 * * 0 cd /data/aschrc6/wilton/isobe/Project9/Exc; /data/aschrc6/wilton/isobe/Project9/Hrc_I/Scripts/reprocess_warp_script> /data/isobe/Logs/reprocess_hrc_i.cron

@@ -1,0 +1,8 @@
+infile,f,a,"",,,"Input dataset/block specification"
+outfile,f,a,"",,,"Output dataset name"
+outBlock,s,h,"",,,"Output block name(1st blkname to be duplicated)"
+lookupTab,f,h,"${ASCDS_CALIB}/dmmerge_header_lookup.txt",,,"lookup table"
+columnList,s,h,"",,,"Column list"
+clobber,b,h,no,,,"Clobber existing file[y/n]"
+verbose,i,h,0,0,5,"Tool chatter level"
+mode,s,h,"ql",,,

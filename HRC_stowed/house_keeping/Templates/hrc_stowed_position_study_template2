@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>HRC Stowed Background Study</title>
+    <link rel="stylesheet" type="text/css" href="./stowed_style_sheet.css" />
+</head>
+
+<body>
+
+<h2>High Resolution Camera Stowed Background Study</h2>
+
+<h4><em>T. Isobe and M. Juda</em></h4>
+
+<h3><em class='title'>Purpose of the Study</em></h3>
+
+<p>
+The <a href="http://hea-www.harvard.edu/HRC/overview/overview.html" target="blank">High Resolution Camera</a>
+ (<em>HRC</em>) detectors are occasionally active while they are in a stowed position. Data taken during 
+these active intervals can be used to study <em>HRC</em> backgrounds.
+Most "events" that <em>HRC</em> sees during the stowed position are cosmic rays which are
+missed by the <a href="http://cxc.harvard.edu/contrib/cxchrc/mvz/index.html" target="blank">anti-coincidence shield</a>, 
+and hence, we can also use the stowed data to study changes in the anti-coincidence shield efficiency.
+</p>
+
+<p>
+In this study, we address following points:
+</p>
+
+<ul class='short'>
+    <li>
+        How the <a href="http://hea-www.harvard.edu/HRC/mcp/mcp.html" target="blank">Micro Channel Plate</a>
+        (<em>MCP</em>) background rate evolves with time 
+    </li>
+    <li>
+        What structure is present in the distribution of the <em>MCP</em> background and if/how does it change with time 
+    </li>
+    <li>
+        How does the Pulse Height Amplitude (<em>PHA</em>) distribution of the <em>MCP</em> background change with time 
+    </li>
+    <li>
+        How the particle environment affects <em>HRC</em> count rates
+    </li>
+</ul>
+
+<h3><em class='title'>Data Selections and Reductions</em></h3>
+
+<p>
+<em>HRC</em> level 0 event data which satisfy all of the following criteria are extracted from archive.
+</p>
+
+<ul class='short'>
+    <li>
+        <em>HRC</em> is at a stowed position (the <em><em>SI</em>M</em> translation position has <em>ACIS</em> in the viewing position).  
+    </li>
+    <li>
+        The detector <em>MCP</em> <em>HV</em> must be on and the operational level.  
+    </li>
+    <li>
+        The Scientific Instrument setting (<em>SI</em>_MODE) is 
+	    "<a href="http://cxc.harvard.edu/contrib/juda/hrc_flight/macros/hrcmode.html" target="blank">
+	    DEFAULT</a>" for the <em>HRC</em>-I/<em>HRC</em>-S, 
+        or 
+	    "<a href="http://cxc.harvard.edu/contrib/juda/hrc_flight/macros/hrcmodes/s_timing.html" target="blank">
+	    S_TIMING</a>" for <em>HRC</em>-S high precision timing mode.  
+    </li>
+    <li>
+        <em>HRC</em> is in the "<a href="http://cxc.harvard.edu/contrib/juda/hrc_flight/nil_mode.html" target="blank">
+        NEXT-IN-LINE</a>" telemetry format.  
+    </li>
+    <li>
+        The <em>HRC</em> serial-digital housekeeping telemetry does not have "glitches".  
+    </li>
+</ul>
+
+<p>
+The level 0 data are processed with the standard <em>HRC</em> function,
+    <a href="http://cxc.harvard.edu/ciao/ahelp/hrc_process_events.html" target='blank'>hrc_process_events</a>, 
+but with no aspect solution applied.
+</p>
+
+
+<p>
+Extracted data are shown in Table 1 below.
+</p>
+
+
+<p class='caption'>
+Table 1: Data and Plots
+</p>
+
+<p class='center'>
+<a name="table1">
+</a>
+<table border="1" cellspacing="2" style='margin-left:auto;margin-right:auto;'>
+<tbody><tr><th>Detector</th><th>Data</th><th>Plot</th></tr>
+<tr><td>
+<strong><em>HRC</em> I</strong> RANGE_SWITCH_LEVEL=115
+</td><td>
+<a href="./hrc_i_115_stats.html" ,="" target="blank">Data</a>
+</td><td>
+<a href="./hrc_i_115_fig.html" ,="" target="blank">Plot</a>
+</td></tr>
+
+<tr><td>
+<strong><em>HRC</em> S</strong> RANGE_SWITCH_LEVEL=125 Section 1
+</td><td>
+<a href="./hrc_s_125_sec1_stats.html" ,="" target="blank">Data</a>
+</td><td>
+<a href="./hrc_s_125_sec1_fig.html" ,="" target="blank">Plot</a>
+</td></tr>
+
+<tr><td>
+<strong><em>HRC</em> S</strong> RANGE_SWITCH_LEVEL=125 Section 2
+</td><td>
+<a href="./hrc_s_125_sec2_stats.html" ,="" target="blank">Data</a>
+</td><td>
+<a href="./hrc_s_125_sec2_fig.html" ,="" target="blank">Plot</a>
+</td></tr>
+
+<tr><td>
+<strong><em>HRC</em> S</strong> RANGE_SWITCH_LEVEL=125 Section 3
+</td><td>
+<a href="./hrc_s_125_sec3_stats.html" ,="" target="blank">Data</a>
+</td><td>
+<a href="./hrc_s_125_sec3_fig.html" ,="" target="blank">Plot</a>
+</td></tr>
+
+<tr><td>
+<strong><em>HRC</em> S</strong> RANGE_SWITCH_LEVEL=125, high precision timing
+</td><td>
+<a href="./hrc_s_125_hi_stats.html" ,="" target="blank">Data</a>
+</td><td>
+<a href="./hrc_s_125_hi_fig.html" ,="" target="blank">Plot</a>
+</td></tr>
+
+</tbody></table>
+
+</p>
+
+
+<p>
+If you are interested in a more detailed description of the selection criteria, please check: 
+<a href="./data_selection.html" ,="" target="blank">Detailed Description of Data Selections and Reduction</a>.
+</p>
+
+
+
+
+
+
+
+
+<h3><em class='title'>Analysis</em></h3>
+<h4><em class='title'>1. Time Evolution</em></h4>
+
+<p>
+When the <em>HRC</em> is in the stowed position it is usually in the next-in-line telemetry format; the 
+amount of data telemetered to the Earth is very limited, and the data are usually telemetry-saturated. 
+However, the <em>HRC</em> also reports three different count rates. 
+
+The first rate is the total rate, which is the count rate of all <em>MCP</em> events (X-rays and high-energy particles). 
+The second rate is the valid rate, which counts the fraction of the "total" events that pass the on-board 
+event validity tests (non-vetoed rate).  The last rate is the shield rate, events due to high-energy 
+particles counted by anti-coincidence shield. Since when the <em>HRC</em> is in the stowed position, 
+the <em>MCP</em> rates (total and valid) are dominated by high-energy particles, we expect the three rates 
+should closely follow the 
+<a href="http://cxc.harvard.edu/contrib/juda/memos/ephin/index.html" target="blank"> Electron Proton Helium Instrument</a> 
+
+(<em>EPHIN</em>) Integral channel flux (see Figure 1 below, or a memo 
+
+<a href="http://cxc.harvard.edu/contrib/juda/memos/radmon/raw_antico_v_ephin.html", target="blank">
+'Raw <em>HRC</em> Antico Rate v <em>EPHIN</em> Flux'</a> by M. Juda).
+</p>
+
+<p>
+Temporal variations of the <em>HRC</em>-I valid, total, and shield rates, as well as
+those of the <em>EPHIN</em> Integral channel flux and the valid/total rate ratio are shown in figure&nbsp;1a.
+The fitte line on ratio of valid / total count rates against time is a linear regression of the second power for Hrc I, but
+fitted lines for Hrc S are a simple linear regression (see Table 1 "Plot"). 
+</p>
+
+
+<p>
+Temporal variation in the event <em>PHA</em> peak for the <em>HRC</em>-I are shown in Figure 1b. 
+The fitted lines in Figure 1b are computed using a robust method on the data with an anti-coincidence shield 
+<em>PMT</em> <em>HV</em>.
+The width of <em>PHA</em> peak in Figure 1b is the standard deviation of the Gaussian 
+fit on the peak.
+</p>
+
+<p style='padding-bottom:30px'>
+Because of the modulation of the cosmic-ray flux due to the solar-activity cycle
+(see <a href="http://cxc.harvard.edu/contrib/juda/memos/ephin/int_channel_pha/index.html" ,="" target="blank">
+<em>EPHIN</em> Integral Channel <em>PHA</em>s</a>), <em>HRC</em> anti-co shield and <em>MCP</em> 
+valid and total count rates change non-linearly with time, and hence, we did not fit a line. 
+
+The value of the <em>EPHIN</em> integral channel flux from the beginning of 2006
+onward is artificially high due to the <em>EPHIN</em> running in a current-limited state. 
+</p>
+
+
+<p class='caption'>
+Figure 1a: Time Evolution of  <em>MCP</em> Valid Count Rate, Total Count Rate, 
+and the ratio <br />of Valid Count Rate/Total Count Rate of <em style='white-space: nowrap;'>Hrc I</em>
+</p>
+
+
+<p class='center'>
+<a name="fig1a">
+<img src="./Plots/hrc_i_115_cnt_trend.png"  style='width:85%;text-align:center'>
+</a>
+
+<br />
+
+<a name="ephinint">
+<img src="./Plots/hrc_i_115_ephin_trend.png"  style='width:85%;text-align:center'>
+</a>
+</p>
+
+<br /><br />
+
+<p class='caption'>
+<a name="fig1b">
+Figure 1b: Time Evolution of  <em>PHA</em> Peak Median and  <em>PHA</em> Peak Width
+</p>
+
+
+<a name="figure1b">
+<p class='center'>
+<img src="./Plots/hrc_i_115_pha_trend.png" style='width:85%;text-align:center'>
+</a>
+</p>
+
+<br />
+
+<p style='padding-top:15px;padding-bottom:20px;'>
+If you like to see the similar plots for <em>Hrc S</em> and <em>Hrc S High Precision</em> cases, please use the links 
+in the <em> Table 1</em>.
+
+Note; since the parameter setting changed in 2012 for <em>Hrc S</em> and <em>Hrc S High Precision</em>, 
+PHA peak position and width trends plots display a big jump around year 2012.
+</p>
+
+
+
+<h3><em class='title'><em>HRC</em> Background Spatial Distribution</em></h3>
+
+<p>
+Although the isotropic flux of high-energy particles might lead one to
+expect the background to be spatially uniform, shielding by spacecraft
+and detector structures can be expected to produce some variations in
+the spatial distribution. We created cumulative background  maps to study the variations.
+</p>
+
+<p>
+To create the maps, we first combined all the evt1 files for the
+individual time intervals (<a href="./Data/Hrc_i_115/hrc_i_115_total_norm.fits.gz">the resulting level event file for Hrc I</a>). 
+
+The data were binned by 256x256 pixels to create an image fits file. 
+We apply <a href="dead_time_correction.html" target="blank">a dead-time correction</a> 
+to the data to account for the effects of telemetry-saturation. 
+The dead-time correction increases the count rates about 15 times of the telemetered count rates.
+The image is normalized to per sec per pixel.
+Figure 2 shows the <em>HRC</em>-I background map (
+<a href="./Data/Hrc_i_115/hrc_i_115_lev2_total_norm.fits.gz">fits file</a>
+) and  the distribution of count rate per sec per pixel area. 
+
+The maps shown below had <a href="./status_bit_correction.html" target="blank">status bit filtering</a> 
+applied to their input event lists, which removes "bad" events from the data 
+(for maps without the status bit filtering, please check <a href="#time_evolution">Time Evolutions</a> section).
+The red color indicates higher counts and the blue indicates lower counts.
+For this background map, we also corrected with an instrument map. For more details, please see
+<a href='./instrument_map.html' target=blank>instrument map correction</a> page.
+</p>
+
+<p style='padding-bottom:30px'>
+Please also check <a href='./Yearly/hrc_i_115_total2.html' target='blank'>HRC I Cumulative Map Page</a>.
+</p>
+
+<p class='caption'>
+Figure 2: <em>HRC</em> I Cumulative Background Map and Count Rate Histogram
+</p>
+
+<p class='center'>
+<a name="fig2">
+<img src="./Maps/Hrc_i_115/hrc_i_115_lev2_total_norm_b.png" style='width:40%; text-aligen:center'>
+<span style='padding-left:40px'></span>
+<img src="./Maps/Hrc_i_115/hist_lev2_total_f_norm.png" style='width:40%; text-aligen:center'>
+<br />
+<!--
+<img src="./Maps/Hrc_i_115/scale.png" style='width:50%; text-aligen:center'>
+-->
+</p>
+
+<br /><br />
+
+
+<p>
+Figure 3 shows the background maps of <em>HRC</em> S (
+<a href="./Data/Hrc_s_125/hrc_s_125_lev2_total_norm1.fits.gz">fits file section 1, </a>
+<a href="./Data/Hrc_s_125/hrc_s_125_lev2_total_norm2.fits.gz">fits file section 2, </a>
+<a href="./Data/Hrc_s_125/hrc_s_125_lev2_total_norm3.fits.gz">fits file section 3  </a>
+),  
+and the distribution of the count rate per sec per
+pixel. The right panel has the origin of the coordinates.
+</p>
+
+
+<p style='padding-bottom:30px'>
+Please also check <a href='./Yearly/hrc_s_125_total2.html' target='blank'>HRC S Cumulative Map Page</a>.
+</p>
+
+
+<p class='caption'>
+Figure 3: <em>HRC</em> S Cumulative Background Maps and Count Rate Histograms
+</p>
+
+
+<p class='center'>
+<a name="fig3">
+<img src="./Maps/Hrc_s_125/hrc_s_125_lev2_total_norm1_b.png" style='width:5%'>
+<img src="./Maps/Hrc_s_125/hrc_s_125_lev2_total_norm2_b.png" style='width:5%'>
+<img src="./Maps/Hrc_s_125/hrc_s_125_lev2_total_norm3_b.png" style='width:5%'>
+<span style='padding-left:40px'> </span>
+<img src="./Maps/Hrc_s_125/hist_lev2_total_f_norm1.png" style='width:17%'>
+<img src="./Maps/Hrc_s_125/hist_lev2_total_f_norm2.png" style='width:15%'>
+<img src="./Maps/Hrc_s_125/hist_lev2_total_f_norm3.png" style='width:15%'>
+<br />
+<!--
+<img src="./Maps/Hrc_s_125/scale.png" style='width:50%'>
+-->
+</a>
+</p>
+
+<br /><br />
+
+Figure 4 shows <em>HRC</em> S with high precision timing mode background map (
+<a href="./Data/Hrc_s_125_hi/hrc_s_125_hi_lev2_total_norm.fits.gz">fits file</a>
+), and the count distribution per sec per pixel.
+
+<p style='padding-bottom:30px'>
+Please also check <a href='./Yearly/hrc_s_125_hi_total2.html' target='blank'>HRC S High Peecision Cumulative Map Page</a>.
+
+
+<p class='caption'>
+Figure 4: <em>HRC</em> S High Precision Timing Mode Cumulative Background Map and Count Rate Histogram
+</p>
+
+<p class='center'>
+<a name="fig4">
+<img src="./Maps/Hrc_s_125_hi/hrc_s_125_hi_lev2_total_norm_b.png" style='width:10%; text-align:center'>
+<span style='padding-left:40px'></span>
+<img src="./Maps/Hrc_s_125_hi/hist_lev2_total_f_norm.png"  style='width:50%; text-align:center'>
+<br />
+<!--
+<img src="./Maps/Hrc_s_125_hi/scale.png"  style='width:50%; text-align:center'>
+-->
+</p>
+<br /><br />
+
+
+
+
+
+<a name="time_evolution">
+</a>
+<h3><em class='title'><em>HRC</em> Background Map---Time Evolutions</em></h3>
+
+<p>
+The following plots show yearly changes of HRC background maps.
+These maps are corrected with <a href="./status_bit_correction.html" target="blank">status bit filtering</a>.
+</p>
+
+<p>
+The background maps are created as follows:
+</p>
+
+<ul class='short'>
+<li>All event 1 data for the year are added up.</li>
+<li>Bin size is set to 256x256 for <em>HRC</em> I, 128x128 for <em>HRC</em> S pixels.</li>
+<li>Apply <a href="dead_time_correction.html" target="blank">dead time correction</a> to each image file.</li>
+<li>Compute the background time of the year (including dead time correction,e.g., see 
+    <a href="./Data/Stats/hrc_i_115_dead_time" target="blank"><em>HRC</em> I 115 Dead Time List</a>), then
+    normalized to the background count rate per sec per pixel.</li>
+<!--
+<li>There are two background maps for each year, and one is with 
+	<a href="./status_bit_correction.html" target="blank">status bit filtering</a>.</li>
+-->
+</ul>
+
+<p>
+<em>HRC</em>-I (status bit filtered) shows more counts at the lower left corner (e.g., see Year 2009). 
+This is because the instrument opening is located in that direction and more particles could reach
+the detector. The change of the brightness of the maps is due to the change of amounts of cosmic rays
+seen in Figure 1. 
+</p>
+
+<b>HRC I Yearly BackGround Maps</b>
+<br /> 
+<img src='./Maps/Hrc_i_115/scale.png' style=with:85%;'>
+<br />
+<iframe src="./hrc_i_115_slide.html"  scrolling="yes" frameborder="0"  style='width:95%;height: 180px'></iframe> 
+<p style='padding-bottom:20px'>
+    For more details, please go to: 
+    <a href="./hrc_i_115_main.html" target="blank"><em>HRC</em> I Yearly Background Maps</a>
+</p>
+
+
+
+<b>HRC S Yearly BackGround Maps</b>
+<br /> 
+<img src='./Maps/Hrc_s_125/scale.png' style=with:85%;'>
+<br />
+<iframe src="./hrc_s_125_slide.html"  scrolling="yes" frameborder="0"  style='width:95%; height:230px'></iframe> 
+<p style='padding-bottom:20px'>
+    For more details, please go to: 
+    <a href="./hrc_s_125_main.html" target="blank"><em>HRC</em> S Yearly Background Maps</a>
+</p>
+
+
+
+<b>HRC S High Precision Tuning Yearly BackGround Maps</b>
+<br />
+<img src='./Maps/Hrc_s_125_hi/scale.png' style=with:85%;'>
+<br />
+<iframe src="./hrc_s_125_hi_slide.html"  scrolling="yes" frameborder="0"  style='width:95%; height:230px'></iframe> 
+<p>
+    For more details, please go to: 
+    <a href="./hrc_s_125_hi_main.html" target="blank"><em>HRC</em> S High Precision Timing Mode Background Maps</a>
+</p>
+
+
+
+
+
+
+
+<div style='padding-top:40px'>
+</div>
+
+<h2 style='font-size:120%' >Appendices</h2>
+
+<h3 style='padding-top:10px; font-size:110%'><em class='title'>Appendix 1: 
+<a href='./hrci_image_correction.html' target='blank'>
+How to Create a Background Map for an Observation
+</a>
+</em></h3>
+
+<p style='padding-left:20px; padding-right:40px'>
+The stowed background maps created each year can be used to correct <em>HRC</em> I observations.
+We show a step by step procedure in:
+<a href='./hrci_image_correction.html' target='blank'>How to Create a Background Map for an Observation</a> page.
+</p>
+
+
+<h3 style='padding-top:10px; font-size:110%;padding-bottom:10px'><em class='title'>Appendix 2:
+<a href='./data_selection.html' target='blank'>Detail Descriptions of Data Selections and Reductions</a>
+</em>
+</h3>
+
+<h3 style='padding-top:10px; font-size:110%;padding-bottom:50px'><em class='title'>Appendix 3:
+<a href='./antico_high_voltage.html' target='blank'>The Effects of Anti-Coincidence High Voltage Settings</a>
+</em>
+</h3>
+
+
+
+
+
+
+
+
+<hr />
+
+<p>
+If you have any questions about this page, please contact: 
+<a href="mailto:tisobe@cfa.harvard.edu">tisobe@cfa.harvard.edu</a>
+</p>
+
+<br />
+
+<!-- Last Update: -->
+Last modified: #UPDATE#
+
+</body>
+</html>

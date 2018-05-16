@@ -1,0 +1,6 @@
+infile,f,a,"hrc_4_eng0_20161115.fits[cols !QUALITY,!2CEAHVPT,!2N15VAVL,!2N15VBVL,!2P05VAVL,!2P05VBVL,!2P15VAVL,!2P15VBVL,!2P24VAVL,!2P24VBVL,!2UVLSPXT]",,,"Input file"
+outfile,f,a,"hrc_rates_20161115.fits",,,"Output file"
+expression,s,a,"@col_calc.lis",,,"expression(s) to evaluate"
+clobber,b,h,no,,,"Clobber output file if it exists?"
+verbose,i,h,0,0,5,"Debug level"
+mode,s,h,"ql",,,

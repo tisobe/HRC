@@ -1,0 +1,8 @@
+'/data/aschrc6/wilton/isobe/Project8/HZ43/'                          :main_dir
+'/data/aschrc6/wilton/isobe/Project8/HZ43/Scripts/'                  :bin_dir
+'/data/aschrc6/wilton/isobe/Project8/HZ43/Scripts/house_keeping/'    :house_keeping
+'/data/aschrc6/wilton/isobe/Project8/HZ43/Data/'                     :data_dir
+'/data/aschrc6/wilton/isobe/Project8/HZ43/Exc/'                      :exc_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/HRC_trendings/HZ43/'        :web_dir
+'/data/mta/Script/Python_script2.7/'                                 :mta_dir
+'http#//cxc.cfa.harvard.edu/contrib/cxchrc/HRC_trendings/HZ43/'      :html_top

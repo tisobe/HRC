@@ -1,0 +1,7 @@
+'/data/aschrc6/wilton/isobe/Project9/'                              :main_dir
+'/data/aschrc6/wilton/isobe/Project9/Scripts/Hrc_I/'                :bin_dir
+'/data/aschrc6/wilton/isobe/Project9/Scripts/Hrc_I/house_keeping/'  :house_keeping
+'/data/hrc/i/'                                                      :data_dir
+'/data/aschrc6/wilton/isobe/Project9/Exc/'                          :exc_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/Archive/'                  :html_dir
+'/data/mta/Script/Python_script2.7/'                                :mta_dir

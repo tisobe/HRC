@@ -1,0 +1,15 @@
+cd /data/aschrc6/wilton/isobe/Project8/HZ43/Exc
+
+source /proj/sot/ska/bin/ska_envs.csh
+
+/data/aschrc6/wilton/isobe/Project8/HZ43/Scripts/create_hz43_center_location_list.py
+
+/data/aschrc6/wilton/isobe/Project8/HZ43/Scripts/extract_hz43_stat.py
+
+/data/aschrc6/wilton/isobe/Project8/HZ43/Scripts/create_hz43_trend_plots.py
+/data/aschrc6/wilton/isobe/Project8/HZ43/Scripts/create_count_rate_plots.py
+/data/aschrc6/wilton/isobe/Project8/HZ43/Scripts/create_profile_plot.py
+
+
+chgrp -R mtagroup /proj/web-cxc-dmz/htdocs/contrib/cxchrc/HRC_trendings/HZ43/*
+chgrp -R mtagroup /data/aschrc6/wilton/isobe/Project8/HZ43/Data/*

@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>HRC Stowed Background Study: Hrc I 115 Year #YEAR#</title>
+    <link rel="stylesheet" type="text/css" href="stowed_style_sheet.css" />
+
+    <script language="JavaScript">
+        function WindowOpener(imgname) {
+            msgWindow = open("","displayname","toolbar=no,directories=no,menubar=no,location=no,scrollbars=no,status=no,,width=850,height=850,resize=no");
+            msgWindow.document.clear();
+            msgWindow.document.write("<html><title>Trend plot:   "+imgname+"</TITLE>");
+            msgWindow.document.write("<body bgcolor='black'>");
+            msgWindow.document.write("<img src='../Maps/Hrc_i_115/"+imgname+"' border =0 width=100% ><p></p></body></html>")
+            msgWindow.document.close();
+            msgWindow.focus();
+        }
+    </script>
+
+    <style>
+        th {
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Hrc I Year #YEAR#</h2>
+
+<h3 style='position:absolute;right:30px;width=40%;padding-bottom:30px'>
+    <table border=0>
+        <tr>
+            <th colspan=2> <a href='./hrc_map_main_page.html'> Back To Main Page </a> </th>
+        </tr>
+        <tr>
+            #DLINE#
+        </tr>
+    </table>
+</h3>
+
+<h3>
+        No Data Found for Year: #YEAR#
+</h3>
+
+
+
+<div style='padding-bottom:500px'>
+</div>
+<hr />
+<p style='padding-top: 5px;padding-bottom:10px'>
+If you have any questions about this page, please contact: <a href='mailto:tisobe@cfa.harvard.edu'>tisobe@cfa.harvard.edu</a>.
+</p>
+
+</body>
+</html>
+
+

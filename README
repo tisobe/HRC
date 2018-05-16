@@ -1,0 +1,10 @@
+
+This repository contains HRC related sets of scripts.
+
+HRC_archive         --- archive of all HRC data in /data/hrc/s/ and /data/hrc/i/
+HRC_arlac_monitor   --- monitoring the UV/Ion Shield Health using AR Lac
+HRC_arlac_samp      --- AR Lac PI and Samp Trends
+HRC_hz43            --- HZ 43 PI and Samp Trends
+HRC_raw             --- Extracting HRC ENG Raw Data/Extracting HRC HK0 Raw Data
+HRC_stowed          --- HRC Stowed Background Estimation
+HRC_vega            --- onitoring the UV/Ion Shield Health using Vega

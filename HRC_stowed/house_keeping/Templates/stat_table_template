@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>#HTITLE#</title>
+
+    <style type='text/css'>
+        td {text-align:center}
+    </style>
+
+</head>
+
+<body>
+<h2>Data of #MTITLE# (#ADATA#)</h2>
+
+<table border = 1, cellpadding=2, cellspacing=2>
+    <tr><th>Date</th>
+        <th>TSTART</th>
+        <th>TSTOP</th>
+        <th>Duration (sec)</th>
+        <th>Total Counts</th>
+        <th>Counts per Sec</th>
+        <th>Mean of PHA Peak Position</th>
+        <th>Median of PHA Peak Position</th>
+        <th>Sigma of PHA Peak Position</th>
+        <th>Mean of MCP Valid Count Rate</th>
+        <th>Median of MCP Valid Count Rate</th>
+        <th>Sigma of MCP Valid Count Rate</th>
+        <th>Mean of MCP Total Count Rate</th>
+        <th>Median of MCP Total Count Rate</th>
+        <th>Sigma of MCP Total Count Rate</th>
+        <th>Mean of MCP Shield Count Rate</th>
+        <th>Median of MCP Shield Count Rate</th>
+        <th>Sigma of MCP Shield Count Rate</th>
+        <th>Mean of Valid/Total MCP Rate </th>
+        <th>Median of Valid/Total MCP Rate</th>
+        <th>Sigma of  Valid/Total MCP Rate</th>
+        <th>S2HVST</th>
+        <th>S2HVLV</th>
+        <th>EPHIN Integrated Flux</th>
+    </tr>
+
+    #TABLE#
+
+</table>
+
+<div style='padding-top:30px'>
+</div>
+<hr />
+<p style='padding-top:5px; padding-bottom:10px'>
+<span style='padding-right: 50px'>
+    <em>
+        Last Update: #UPDATE#
+    </em>
+</span>
+If you have any questions about this page, please contact
+<a href='mailto::tisobe@cfa.harvard.edu'>tisobe@cfa.harvard.edu</a>.
+</p>
+
+</body>
+</html>

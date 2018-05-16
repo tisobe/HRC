@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>How to Create a Background Map for an Observation</title>
+
+<link rel="stylesheet" type="text/css" href="stowed_style_sheet.css" />
+
+</head>
+<body>
+<h2>How to Create a Background Map for an Observation</h2>
+
+<h4><i>T. Isobe and M. Juda</i></h4>
+
+<p>
+Although <a href="http://asc.harvard.edu/ciao/threads/expmap_hrci/">
+Compute an HRC-I Exposure Map and Build Fluxed Image</a> explains how
+to a HRC-I fluxed map in detail,  we explain in this note how to
+incorporate a stowed background map to create a better fluxed
+map. The "ring" artifacts mentioned in the flux map are due
+to applying a HRMA vignetting correction to the particle
+background. Subtracting an estimate for the particle background
+from the observation before exposure correcting should eliminate
+these artifacts.  If you like to know more about HRC stowed backgrounds, please go to 
+<a href = "./hrc_stowed_position_study.html">High Resolution Camera Stowed Background Study</a>.
+</p>
+
+
+<p>
+The following table shows the yearly cumulative HRC-I stowed level 1
+event file links and their dead time corrected total yearly exposure time. 
+</p>
+
+<table border="1" cellpadding="3" cellspacing="3" style='margin-left: auto;margin-right: auto;'>
+<tbody><tr>
+            <th>Year</th>
+            <th style="text-align:center">HRC I Evt1 File</th>
+            <th>Corrected Exposure Time (sec)</th>
+            <th>Total Event Numbers</th>
+        </tr>
+
+#TABLE#
+
+</tbody>
+</table>
+
+
+<p>
+The HRC-I background event files are also available for download as part of <a href="http://cxc.harvard.edu/ciao/download/caldb.html">CALDB 4.7.3</a>, released on 31 May 2016.
+(see also <a href='http://cxc.harvard.edu/ciao/threads/hrci_bg_events/'>CIAO The HRC-I Background Event Files</a> Page.)
+</p>
+
+<p>
+Download the event file of the year in which your observation is
+done. If the observation is done during the current year, you
+may want to combine the current year and the previous year to have
+a sufficient stowed observation time. Since the thread
+<a href="http://asc.harvard.edu/ciao/threads/expmap_hrci/"> 
+Compute an HRC-I Exposure Map and Build Fluxed Image</a>  uses
+OBSID = 144, observed in year 2000, we use the year 2000 stowed
+background data in the example below. 
+</p>
+
+
+<p>
+First, we perform status-bit filtering on the stowed background
+data.This filtering will remove the events that standard
+processing would have removeded as likely "background"
+events in generating the primary (level 2) event list.
+</p>
+
+
+<blockquote>
+<pre>
+unix% dmcopy "hrc_i_115_2000_evt1.fits[status=xxxxxx00xxxx0xxx00000000x0000000]" \ 
+      outfile=hrc_i_115_2000_evt2.fits
+</pre>
+</blockquote>
+<br />
+
+<p>
+If a different status-bit mask was used, the corresponding change should be made here as well.
+</p>
+
+
+<p class='caption'>
+Figure 1: Stowed Background Image before (Left) and after Status Bit Correction
+</p>
+
+<p class='center'>
+<img src="Hrci_image_correction_files/hrc_i_115_2000_time_corrected_lev1_img.png" ,="" width="400" height="320">
+<img src="Hrci_image_correction_files/hrc_i_115_2000_time_corrected_lev2_img.png" ,="" width="400" height="320">
+</p>
+
+<p>
+Since the stowed event file does not have correct sky coordinates, we need to
+add them; we will do this using the CIAO tool "reproject_events". For HRC
+event-lists a time column is required and the times need to lie within the
+observation's time-interval. We use the CIAO tool 
+<a href="http://cxc.harvard.edu/ciao/ahelp/dmtcalc.html">dmtcalc</a>
+to modify the background file's event-times to match those in the GTI of the observation.
+</p>
+
+<p>
+Using the observation's event list, hrcf00144N004_evt2.fits, to get the times:
+</p>
+
+<blockquote>
+<pre>
+unix% dmstat "hrcf00144N004_evt2.fits[cols time]"
+time[s]
+    min:        84154932.677          @:        1 
+    max:        84185127.061          @:        854440 
+   mean:        84169382.053 
+  sigma:        9148.9938848 
+    sum:        7.1917686801e+13 
+   good:        854440 
+   null:        0 
+</pre>
+</blockquote>
+
+
+<p>
+we can then use 
+<a href="http://cxc.harvard.edu/ciao/ahelp/dmtcalc.html">dmtcalc</a>
+modify the stowed background event times:
+</p>
+
+<blockquote>
+<pre>
+unix% dmtcalc infile=hrc_i_115_2000_evt2.fits outfile=hrc_i_115_2000_time_corrected_evt2.fits \
+      expression="time=30194*#trand+84154933"
+</pre>
+</blockquote>
+
+<p>
+where 	
+</p>
+<ul class='medium'>
+<li>time:       time value in data column</li>
+<li>30194:      the difference between the starting and stopping time of the observation</li>
+<li>#trad:      random number generator which uses a system clock time as a seed</li>
+<li>84154933:   the starting time of the observation </li>
+</ul>
+
+<p>
+Now, using <a href="http://cxc.harvard.edu/ciao/ahelp/reproject_events.html">reproject_events</a> and the aspect file of 
+obsid 144, we compute the sky coordinates matched to chip coordinates of the stowed background file.
+</p>
+
+<blockquote>
+<pre>
+unix% reproject_events infile="hrc_i_115_2000_time_corrected_evt2.fits" \
+      outfile=hrc_i_115_2000_bkg.fits aspect=pcadf084154631N004_asol1.fits \
+      match=hrcf00144N004_evt2.fits random=0 clobber=yes
+</pre>
+</blockquote>
+
+<p>
+Since <a href="http://asc.harvard.edu/ciao/threads/expmap_hrci/">"HRC-I
+Exposure Map and Fluxed Image"</a> is using the binning of 32x32, we use the same factor. 
+</p>
+
+
+<blockquote>
+<pre>
+unix% dmcopy "hrc_i_115_2000_bkg.fits[bin x=::32, y=::32]" outfile=hrc_i_115_2000_bkg_img.fits
+</pre>
+</blockquote>
+
+<p>
+Subtract this background image from the observation image, using a
+suitable weight to account for the difference in exposure times.
+</p>
+
+<blockquote>
+<pre>
+unix% dmimgcalc 144_img32.fits hrc_i_115_2000_bkg_img.fits 144_img32_bkg_sub.fits \ 
+      sub weight=1 weight2=0.3202
+</pre>
+</blockquote>
+
+<p>
+where 0.3202 is <b><i>(observation exposure time)/(background exposure time)</i></b>= 30192/94287.
+The background subtracted image is shown below. From this image, all negative value pixels were droped.
+</p>
+
+
+<p class='caption'>
+Figure 2: The Background Subtracted Observation Image
+</p>
+
+<p class='center'>
+<img src="Hrci_image_correction_files/144_img32_bkg_corr.png" width="400" height="320">
+</p>
+
+<p>
+On this image, we apply the exposure map normalization, following the example shown in
+<a href="http://asc.harvard.edu/ciao/threads/expmap_hrci/">HRC-I Exposure Map and Fluxed Image</a>
+page. 
+</p>
+
+<p>
+The resulting fluxed image is shown below (the right side plot). As before, all negative value 
+pixels were droped from the map.
+</p>
+
+<p class='caption'>
+Figure 3: Fluxed Image without (Left) and with the Background Correction
+</p>
+
+<p class='center'>
+<img src="Hrci_image_correction_files/144_img32_norm_full_range.png"  width="600" height="330">
+</p>
+
+<p>
+The images below are same as above, but the upper threshold is set to 3.0e-5 (cnt/pix/sec) 
+to show the concentric rings on the original data analysis (left). The background subrtracted
+image (right) does not show these rings.
+</p>
+
+<p class='caption'>
+Figure 4: Fluxed Image without (Left) and with the Background Correction
+with upper threshold set to 3.0e-5 (cnt/pix/sec)
+</p>
+
+<p class='center'>
+<img src="Hrci_image_correction_files/144_img32_norm_limited_range.png" ,="" width="600" height="330">
+</p>
+<br /><br />
+
+<p class='caption'>
+Figure 5: Fluxed Image of the Central Part  without (Left) and with the Background Correction
+</p>
+
+<p class='center'>
+<img src="Hrci_image_correction_files/144_img32_norm_center.png"  width="600" height="300">
+</p>
+<br /><br />
+
+<p>
+Figure 6 is the plot of  the numbers of events for counts/pixel/sec after the background adjusted.
+About a half of the events are in the negative side. This is statistically expected.
+</p>
+
+<p>
+The background file binned at 32x32 probably has a significant number of counts in each image 
+cell (mean ~2e-7cnt/pix/sec). The observation when binned at the same factor may have many image cells 
+with zero events, some with one and a few with two or more.
+The cells with zero will give negative values in the difference map 
+but the cells with ones or more give positive values and on average, away from 
+sources we can expect the difference to be zero or slightly larger due to an 
+additional sky- or low-energy-proton- background component in the observation.
+</p>
+
+
+<p class='caption'>
+Figure 6: # of Events for Counts/Pixel/Sec after Background Adjusted
+</p>
+
+<p class='center'>
+<img src="Hrci_image_correction_files/cnt_rate_plot.gif"  width="400" height="320">
+</p>
+
+<br /><br />
+
+<hr />
+
+Last update: Mon Jan 27 10:28:09 EST 2014 
+
+<br /><br />
+If you have any question, contact <a href="mailto:isobe@head.cfa.harvard.edu">isobe@head.cfa.harvard.edu</a>
+
+
+
+</body></html>

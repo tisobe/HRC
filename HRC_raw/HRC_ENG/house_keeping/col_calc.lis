@@ -1,0 +1,4 @@
+mcptot_a=(short)((2detart*0.0039216289d0)-1.0000154d0+0.5)
+mcptot_b=(short)((2detbrt*0.0039216289d0)-1.0000154d0+0.5)
+shield_a=(short)((2shldart*0.0039216289d0)-1.0000154d0+0.5)
+shield_b=(short)((2shldbrt*0.0039216289d0)-1.0000154d0+0.5)

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<title>Monitoring the UV/Ion Shield Health: Ar Lac</title>
+
+<!-- <<link rel="stylesheet" type="text/css" href="https://cxc.cfa.harvard.edu/mta/REPORTS/Template/mta.css" />-->
+<style>
+    td{padding:5px}
+    th{padding:5px; text-align:center}
+</style>
+</head>
+<body>
+
+<h2>Monitoring the UV/Ion Shield Health</h2>
+<p>
+In the tables below the exposure times have been corrected for dead-time after fixing the DTCOR values for the double-counting of events (done automatically in pipeline processing in DS 7.3 - July 2004).
+</p>
+
+<h3>HRC-I</h3>
+<p>
+Background-subtracted source rates:
+</p>
+
+<ul>
+    <li>Source region centered at the RA and Dec of AR Lac</li>
+    <li>Source region 4 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius 8 arcsec outer radius 12 arcsec </li>
+</ul>
+
+#TABLE_I_0#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_i_0_rate.png' style='width:90%; text-align:center'>
+</div>
+<hr />
+
+
+<!-- ##################### -->
+
+<h4>y-offset = +5 - 15 arcmin</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 16 arcsec of nominal RA and Dec</li>
+    <li>Source region 16 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius 32 arcsec outer radius 48 arcsec </li>
+</ul>
+
+#TABLE_I_10#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_i_10_rate.png' style='width:90%; text-align:center'>
+</div>
+
+<hr />
+
+<!-- ##################### -->
+
+<h4>Y-offset = -5 - -15  arcmin</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 16 arcsec of nominal RA and Dec</li>
+    <li>Source region 16 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius 32 arcsec outer radius 48 arcsec </li>
+</ul>
+#TABLE_I_M10#
+
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_i_m10_rate.png' style='width:90%; text-align:center'>
+</div>
+<hr />
+
+<!-- ##################### -->
+
+<h4>HRC-S Segment -1</h4>
+<h4>Y-offset &ge; +15 arcmin or farther</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 64 arcsec of nominal RA and Dec</li>
+    <li>Source region 64 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius ~100 arcsec outer radius ~130 arcsec </li>
+</ul>
+
+#TABLE_I_25#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_i_25_rate.png' style='width:90%; text-align:center'>
+</div>
+
+<hr />
+
+<!-- ##################### -->
+
+<h4>HRC-S Segment +1</h3>
+<h4>Y-offset &le; -15 arcmin or farther</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 64 arcsec of nominal RA and Dec</li>
+    <li>Source region 64 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius ~100 arcsec outer radius ~130 arcsec </li>
+</ul>
+
+#TABLE_I_M25#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_i_m25_rate.png' style='width:90%; text-align:center'>
+</div>
+
+
+<div style='padding-bottom:40px'>
+</div>
+
+<!-- #################################################################################################### -->
+
+
+<!-- ##################### -->
+
+<h3>HRC-S Segment 0</h3>
+<h4> On-axis</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 4 arcsec of nominal RA and Dec</li>
+    <li>Source region 4 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius 8 arcsec outer radius 12 arcsec </li>
+</ul>
+
+#TABLE_S_0#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_s_0_rate.png' style='width:90%; text-align:center'>
+</div>
+
+<hr />
+
+<!-- ##################### -->
+
+<h4>Y-offset = +5 - 15 arcmin</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 16 arcsec of nominal RA and Dec</li>
+    <li>Source region 16 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius 32 arcsec outer radius 48 arcsec </li>
+</ul>
+
+#TABLE_S_10#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_s_10_rate.png' style='width:90%; text-align:center'>
+</div>
+
+<hr />
+
+<!-- ##################### -->
+
+<h4>Y-offset = -5 - -15  arcmin</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 16 arcsec of nominal RA and Dec</li>
+    <li>Source region 16 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius 32 arcsec outer radius 48 arcsec </li>
+</ul>
+#TABLE_S_M10#
+
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_s_m10_rate.png' style='width:90%; text-align:center'>
+</div>
+<hr />
+
+<!-- ##################### -->
+
+<h4>HRC-S Segment -1</h4>
+<h4>Y-offset &ge; +15 arcmin or farther</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 64 arcsec of nominal RA and Dec</li>
+    <li>Source region 64 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius ~100 arcsec outer radius ~130 arcsec </li>
+</ul>
+<h4>No Data</h4>
+<!--
+#TABLE_S_25#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_s_25_rate.png' style='width:90%; text-align:center'>
+</div>
+-->
+
+<hr />
+
+<!-- ##################### -->
+
+<h4>HRC-S Segment +1</h3>
+<h4>Y-offset &le; -15 arcmin or farther</h4>
+<p>
+Background-subtracted source rates:
+</p>
+<ul>
+    <li>Source region centered on centroid of events within 64 arcsec of nominal RA and Dec</li>
+    <li>Source region 64 arcsec radius</li>
+    <li>Annular background region, concentric with source region, inner radius ~100 arcsec outer radius ~130 arcsec </li>
+</ul>
+
+#TABLE_S_M25#
+
+<div style='padding-top: 10px;padding-bottom:10px'>
+<img src='./Plots/hrc_s_m25_rate.png' style='width:90%; text-align:center'>
+</div>
+
+<hr />
+
+<p>
+Last Modified: #UPDATE#
+</p>
+<p>
+If you have any questions about this page, please contact <a html='mailto:tisobe@cfa.harvard.edu'>tisobe@cfa.harvard.edu</a>.
+</p>
+
+</body>
+</html>

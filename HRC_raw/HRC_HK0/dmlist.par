@@ -1,0 +1,7 @@
+infile,f,a,"hrc_hk0_20161115.fits[smtratm=55:57]",,,"Input dataset/block specification"
+opt,s,a,"blocks",,,"Option"
+outfile,f,h,"",,,"Output file (optional)"
+rows,s,h,"",,,"Range of table rows to print (min:max)"
+cells,s,h,"",,,"Range of array indices to print (min:max)"
+verbose,i,h,0,0,5,"Debug Level(0-5)"
+mode,s,h,"ql",,,

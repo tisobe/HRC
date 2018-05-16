@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>HRC Stowed Background Study: Hrc S 125 Main Page</title>
+    <link rel="stylesheet" type="text/css" href="stowed_style_sheet.css" />
+
+    <script language="JavaScript">
+        function WindowOpener(imgname) {
+            msgWindow = open("","displayname","toolbar=no,directories=no,menubar=no,location=no,scrollbars=no,status=no,,width=850,height=850,resize=no");
+            msgWindow.document.clear();
+            msgWindow.document.write("<html><title>Trend plot:   "+imgname+"</TITLE>");
+            msgWindow.document.write("<body bgcolor='black'>");
+            msgWindow.document.write("<img src='../Maps/Hrc_i_115/"+imgname+"' border =0 width=100% ><p></p></body></html>")
+            msgWindow.document.close();
+            msgWindow.focus();
+        }
+    </script>
+
+    <style>
+        td {
+            width: 30%;
+        }
+        th {
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Hrc S Background Maps</h2>
+
+<p>
+The background map is created as follows:
+</p>
+
+<ul>
+    <li>
+        Add up all HRC S event 1 fits files for a given year.
+    </li>
+    <li>
+        Create an image file with bin size of 256x256 pixels.
+    </li>
+    <li>
+        Compute the background time of the year (including 
+        dead time correction
+        ) normalized to the background count rate per sec per pixel. 
+    </li>
+</ul>
+
+
+<p>
+The table blow shows an overview of stowed background changes over years. 
+The fist column is year, the second column is a dead time corrected yearly comulative 
+background time. The third column is a stowed background map with event 1 
+data scaled so that details show up. The fourth column is the same data 
+but unified scale for all years. The fifth and sixth columns are similar 
+to those of the third and the fourth, but status bit corrected data. 
+If you click on the year or one of the maps, it will take to the larger map of the map. 
+</p>
+
+<table border=1 style='margin-left:auto;margin-right:auto'>
+<tr>
+    <th>Year</th>
+    <th> Time (sec)<br /> Total Event Numbers</th>
+    <th>Evt1<br /> (Peak Area) </th>
+    <th>Evt1<br /> (Same Scale)</th>
+    <th>Lev2<br /> (Peak Area) </th>
+    <th>Lev2<br /> (Same Scale)</th>
+</tr>
+#TABLE#
+
+</table>
+
+<hr />
+<p style='padding-top: 5px;padding-bottom:10px'>
+If you have any questions about this page, please contact: <a href='mailto:tisobe@cfa.harvard.edu'>tisobe@cfa.harvard.edu</a>.
+</p>
+
+
+
+</body>
+</html>
+
+

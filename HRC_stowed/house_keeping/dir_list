@@ -1,0 +1,17 @@
+'/data/aschrc6/wilton/isobe/Project1/'                                      :main_dir
+'/data/aschrc6/wilton/isobe/Project1/Scripts/'                              :bin_dir
+'/data/aschrc6/wilton/isobe/Project1/Exc/'                                  :exc_dir
+'/data/aschrc6/wilton/isobe/Project1/Data/'                                 :data_dir
+'/data/aschrc6/wilton/isobe/Project1/Data/Hrc_i_115/'                       :hrc_i_dir
+'/data/aschrc6/wilton/isobe/Project1/Data/Hrc_s_125/'                       :hrc_s_dir
+'/data/aschrc6/wilton/isobe/Project1/Data/Hrc_s_125_hi/'                    :hrc_s_hi_dir
+'/data/aschrc6/wilton/isobe/Project1/Data/Stats/'                           :stat_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/Stowed_study/'                     :html_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/Stowed_study/Plots/'               :plot_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/Stowed_study/Maps/'                :map_dir
+'/data/aschrc6/wilton/isobe/Project1/Scripts/house_keeping/'                :house_keeping
+'/data/mta/Script/Python_script2.7/'                                        :mta_dir
+'/data/mta/Script/Python_script2.7/house_keeping/Info_dir/'                 :bindata_dir
+'/proj/web-cxc-dmz/htdocs/contrib/cxchrc/Stowed_study'                      :web_dir
+'/data/CALDB/sdp/data/chandra/hrc/badpix/'                                  :bad_pix_dir
+'/data/CALDB/sdp/data/chandra/hrc/'                                         :calib_dir
